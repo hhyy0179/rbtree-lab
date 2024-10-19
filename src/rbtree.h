@@ -1,6 +1,6 @@
 #ifndef _RBTREE_H_
 #define _RBTREE_H_
-
+#include <stdio.h>
 #include <stddef.h>
 
 typedef enum { RBTREE_RED, RBTREE_BLACK } color_t;
@@ -28,5 +28,12 @@ node_t *rbtree_max(const rbtree *);
 int rbtree_erase(rbtree *, node_t *);
 
 int rbtree_to_array(const rbtree *, key_t *, const size_t);
+
+void left_rotation(rbtree *, node_t *);
+void right_rotation(rbtree *, node_t *);
+void post_order_traverse(const rbtree *, node_t *);
+void transplant(rbtree *, node_t *, node_t *);
+node_t *find_minimum(rbtree *, node_t *);
+void delete_fixup(rbtree*, node_t*);
 
 #endif  // _RBTREE_H_
